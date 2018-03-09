@@ -13,6 +13,10 @@ from tkinter import *
 # the main graphical window
 root = Tk()
 
+# the default dimensions of the root window
+w = 300
+root.geometry('{}x{}'.format(int(w*1.618),w))
+
 # the text to be displayed is mutable
 text = StringVar()
 
@@ -22,8 +26,9 @@ label = Message(root,textvariable=text)
 # default text value
 text.set("Oy! Hello from the matrix!")
 
-# fills the Message widget with the text
-label.pack()
+# packs the label onto the root window at the top center, unless a positional
+# argument is specified
+label.pack(anchor = 'nw')
 
-# while(true): update the window
+# essentially, while(true): update the window
 root.mainloop()

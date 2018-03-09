@@ -17,12 +17,12 @@ root = Tk()
 text = StringVar()
 
 # the widget to display the text, with field width of 80 chars
-label = Message(root,textvariable=text,width=80)
+label = Message(root,textvariable=text)
 
 # default text value
-var.set("Oy! Hello from the matrix!")
+text.set("Oy! Hello from the matrix!")
 
-# not sure what this does
+# fills the Message widget with the text
 label.pack()
 
 # while(true): update the window

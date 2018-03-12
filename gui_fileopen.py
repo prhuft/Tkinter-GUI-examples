@@ -14,27 +14,30 @@ from tkinter import *
 def fopen(window):
 	window.filename =  filedialog.askopenfilename(initialdir = "\C:Users\Preston Huft\Documents",title = 
 	"Select file",filetypes = (("text files","*.txt"),("all files","*.*")))
-	return window.filename
+	print("well, its working...")
 
 ## Main code
 
 root = Tk()
 root.geometry('{}x{}'.format(400, 300))
 
-# declare and set a string for the filename
+# declare and initialize string variables
+flabel = StringVar()
 fname = StringVar()
-fname = "filename will go here"
+flabel = "File: "
+fname = "No file selected yet"
 
-# add a Message box
-flabel = Message(root,textvariable=fname)
-flabel.pack(anchor = 'nw')
+# add a Label
+flabel = Label(root,textvariable=flabel).grid(row=0,column=0)
+
+# add a Message box to display the filename
+fmsg = Message(root,textvariable=fname,fg='red').grid(row=0,column=1)
 
 # add a button to launch the file opener
-fbutton = Button(root, text="Select file",fg="blue",command=fopen(root))
-fbutton.pack()
+fbutton = Button(root, text="Select file",fg="blue",command=fopen(root)).grid(row=0,column=2)
 
 # set the fname
-fname.set(root.filename)
+#fname.set(root.filename)
 
 # show/continuously update the window
 root.mainloop()
